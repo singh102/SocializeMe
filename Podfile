@@ -7,6 +7,7 @@ target 'SocializeMe' do
 
   # Pods for SocializeMe
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'SocializeMeTests' do
     inherit! :search_paths
