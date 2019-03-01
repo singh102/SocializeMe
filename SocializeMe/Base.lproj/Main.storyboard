@@ -10,20 +10,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="ccH-uP-Gvm">
             <objects>
-                <viewController id="I7q-47-48f" sceneMemberID="viewController">
+                <viewController id="I7q-47-48f" customClass="ProfileViewController" customModule="SocializeMe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aE2-45-hLZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-r2-XAt">
+                                <rect key="frame" x="109" y="118" width="157" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-mx-Uxt">
+                                <rect key="frame" x="109" y="178" width="157" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0Q-cB-8Nk">
+                                <rect key="frame" x="109" y="242" width="157" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-jw-puw">
+                                <rect key="frame" x="109" y="293" width="157" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fXq-rm-r5e"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="gOa-mx-Uxt" id="RcW-5v-koT"/>
+                        <outlet property="genderTextField" destination="i0Q-cB-8Nk" id="2q7-XC-TRj"/>
+                        <outlet property="occupationTextField" destination="e8Y-jw-puw" id="gXJ-p8-wZ0"/>
+                        <outlet property="userNameText" destination="Qdg-r2-XAt" id="kxd-Sb-qub"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lE5-yU-IYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="-228"/>
+            <point key="canvasLocation" x="1205.5999999999999" y="-228.32512315270938"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -111,7 +147,9 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="81k-OH-aAM" id="9Hy-XQ-3Em"/>
+                        <outlet property="passwordField" destination="JnD-zQ-lxR" id="BKx-FN-nUs"/>
                         <outlet property="signUpButtonPressed" destination="taR-gO-NeX" id="SAG-Iw-afC"/>
+                        <outlet property="userNameField" destination="MgW-CR-9SI" id="QvZ-06-QVU"/>
                         <segue destination="tQR-oj-Q4U" kind="show" identifier="FormViewSegue" id="JJf-Z5-ehi"/>
                         <segue destination="I7q-47-48f" kind="show" identifier="ProfileViewSegue" id="mv7-Lt-QT5"/>
                     </connections>
