@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="140" y="132.26600985221674"/>
         </scene>
-        <!--Profile Form View Controller-->
+        <!--Profile Creation View Controller-->
         <scene sceneID="cN7-gG-zjN">
             <objects>
-                <viewController id="tQR-oj-Q4U" customClass="ProfileFormViewController" sceneMemberID="viewController">
+                <viewController id="tQR-oj-Q4U" customClass="ProfileCreationViewController" customModule="SocializeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqS-d8-1xi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
