@@ -9,10 +9,11 @@
 import Foundation
 
 class UserInfoProfile {
-    private var email: String
-    private var gender: String
-    private var name: String
-    private var occupation: String
+    
+    var email: String
+    var gender: String
+    var name: String
+    var occupation: String
     
     init() {
         self.email = ""
@@ -21,42 +22,18 @@ class UserInfoProfile {
         self.occupation = ""
     }
     
+    init(_ name: String, _ gender: String, _ email: String, _ occupation: String) {
+        self.name = name
+        self.gender = gender
+        self.email = email
+        self.occupation = occupation
+    }
+    
     func print() {
         Swift.print("\(name) \n \(gender) \n \(email) \n \(occupation)")
     }
     
-    func setName(_ name: String) {
-        self.name = name
+    func isValidUser() -> Bool {
+        return self.name.count > 0 && self.email.count > 0 && self.gender.count > 0 && self.occupation.count > 0
     }
-    
-    func setGender(_ gender: String) {
-        self.gender = gender
-    }
-    
-    func setEmail(_ email: String) {
-        self.email = email
-    }
-    
-    func setOccupation(_ occupation: String) {
-        self.occupation = occupation
-    }
-    
-    
-    func getName() -> String {
-        return self.name
-    }
-    
-    func getGender() -> String {
-        return self.gender
-    }
-    
-    func getEmail() -> String {
-        return self.email
-    }
-    
-    func getOccupation() -> String {
-        return self.occupation
-    }
-    
-   
 }
