@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ProfileCreationTableViewController: UITableViewController {
 
+    @IBOutlet weak var txtFullName: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtGender: UITextField!
+    @IBOutlet weak var txtOccupation: UITextField!
+    @IBOutlet weak var txtUserName: UITextField!
+    
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference();
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,14 +35,19 @@ class ProfileCreationTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 8
     }
 
+    @IBAction func createProfile(_ sender: UIButton) {
+        self.ref.child("profiles")
+            .child("testuser5")
+            .setValue(["name": "Best Name", "email": "bestemail@yahoo.com"]);
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
