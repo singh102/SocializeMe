@@ -102,11 +102,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "FormViewSegue", sender: self)
-        
-    }
-    
     func saveToUserInfo(_ name: String, _ gender: String, _ email: String, _ occupation: String) -> UserInfoProfile {
         
         let user = UserInfoProfile(name, gender, email, occupation)
