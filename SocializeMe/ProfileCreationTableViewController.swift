@@ -16,6 +16,7 @@ class ProfileCreationTableViewController: UITableViewController {
     @IBOutlet weak var txtGender: UITextField!
     @IBOutlet weak var txtOccupation: UITextField!
     @IBOutlet weak var txtUserName: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     
     var ref: DatabaseReference!
     
@@ -23,15 +24,7 @@ class ProfileCreationTableViewController: UITableViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference();
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -40,9 +33,13 @@ class ProfileCreationTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 9
     }
-
+    
+    @IBAction func doneEditing(_ sender: UITextField) {
+        sender.resignFirstResponder();
+    }
+    
     @IBAction func createProfile(_ sender: UIButton) {
         var newProfileDictionary: [String: String] = [:];
         
@@ -66,6 +63,12 @@ class ProfileCreationTableViewController: UITableViewController {
             self.ref.child("profiles")
                 .child(userName)
                 .setValue(newProfileDictionary);
+            
+            if let password = txtPassword.text {
+                self.ref.child("Users")
+                    .child(userName)
+                    .setValue(["password": password]);
+            }
         }
     }
 }
