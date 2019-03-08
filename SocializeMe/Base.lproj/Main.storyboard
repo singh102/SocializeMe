@@ -353,16 +353,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="378" id="gFn-3t-8sU">
-                                        <rect key="frame" x="0.0" y="370" width="375" height="378"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="329" id="gFn-3t-8sU">
+                                        <rect key="frame" x="0.0" y="370" width="375" height="329"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gFn-3t-8sU" id="CDW-Vu-biy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="377.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="328.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="aOk-gZ-Twd">
-                                        <rect key="frame" x="0.0" y="748" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="699" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aOk-gZ-Twd" id="B4N-B5-k9w">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
@@ -400,7 +400,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TR-06-9wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="526"/>
+            <point key="canvasLocation" x="1205.5999999999999" y="525.3694581280788"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
