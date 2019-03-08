@@ -114,6 +114,7 @@ class ViewController: UIViewController {
         if self.userName.count > 0 {
             let usersRef = Database.database().reference().child("profiles/\(userName)")
             usersRef.observeSingleEvent(of: .value, with: {(snap : DataSnapshot) in
+                
                 let userInfoDict = snap.value as! [String: String]
                 let name: String = userInfoDict["name"] ?? ""
                 let gender = userInfoDict["gender"] ?? ""
