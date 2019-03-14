@@ -12,6 +12,8 @@ class ApplicationState {
     static let instance = ApplicationState()
     
     var name: String
+
+    
     
     
     init() {
