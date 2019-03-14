@@ -12,7 +12,6 @@
 		20CCBDE22228F91500532761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20CCBDE12228F91500532761 /* GoogleService-Info.plist */; };
 		20CCBDE4222904E900532761 /* UserInfoProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCBDE3222904E900532761 /* UserInfoProfile.swift */; };
 		357A38999B78B0390446807A /* Pods_SocializeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D75764DDA656ABFC0347D67 /* Pods_SocializeMe.framework */; };
-		87275779222E0A8500CCD1EF /* ProfileCreationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87275778222E0A8500CCD1EF /* ProfileCreationTableViewController.swift */; };
 		877C68552220F3E30047C002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C68542220F3E30047C002 /* AppDelegate.swift */; };
 		877C68572220F3E30047C002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C68562220F3E30047C002 /* ViewController.swift */; };
 		877C685A2220F3E30047C002 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877C68582220F3E30047C002 /* Main.storyboard */; };
@@ -43,7 +42,6 @@
 		4D75764DDA656ABFC0347D67 /* Pods_SocializeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocializeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51808649530FA46EAB35BC2C /* Pods-SocializeMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocializeMeTests.release.xcconfig"; path = "Target Support Files/Pods-SocializeMeTests/Pods-SocializeMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		6125E2CC86882F12A915709D /* Pods-SocializeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocializeMe.debug.xcconfig"; path = "Target Support Files/Pods-SocializeMe/Pods-SocializeMe.debug.xcconfig"; sourceTree = "<group>"; };
-		87275778222E0A8500CCD1EF /* ProfileCreationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationTableViewController.swift; sourceTree = "<group>"; };
 		877C68512220F3E30047C002 /* SocializeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocializeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		877C68542220F3E30047C002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		877C68562220F3E30047C002 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				20CCBDE12228F91500532761 /* GoogleService-Info.plist */,
 				20CCBDE3222904E900532761 /* UserInfoProfile.swift */,
 				20BC990D222C6424004D3A36 /* ErrorEngine.swift */,
-				87275778222E0A8500CCD1EF /* ProfileCreationTableViewController.swift */,
 			);
 			path = SocializeMe;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				20CCBDE4222904E900532761 /* UserInfoProfile.swift in Sources */,
 				20BC990E222C6424004D3A36 /* ErrorEngine.swift in Sources */,
 				877C68552220F3E30047C002 /* AppDelegate.swift in Sources */,
-				87275779222E0A8500CCD1EF /* ProfileCreationTableViewController.swift in Sources */,
 				201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */,
 				877EC4DB2239E242005FCA8E /* ProfileCreationViewController.swift in Sources */,
 			);

@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class ProfileCreationViewController: UIViewController {
+class ProfileCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -62,5 +62,15 @@ class ProfileCreationViewController: UIViewController {
                     .setValue(["password": password]);
             }
         }
+    }
+    
+    @IBAction func addProfileImage(_ sender: UIButton) {
+        let picker = UIImagePickerController();
+        picker.delegate = self;
+        present(picker, animated: true, completion: nil);
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("Cancelled");
     }
 }
