@@ -19,6 +19,7 @@
 		877C685C2220F3E40047C002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877C685B2220F3E40047C002 /* Assets.xcassets */; };
 		877C685F2220F3E40047C002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877C685D2220F3E40047C002 /* LaunchScreen.storyboard */; };
 		877C686A2220F3E40047C002 /* SocializeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C68692220F3E40047C002 /* SocializeMeTests.swift */; };
+		877EC4DB2239E242005FCA8E /* ProfileCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877EC4DA2239E242005FCA8E /* ProfileCreationViewController.swift */; };
 		BA0031933B805E8F5FC9054D /* Pods_SocializeMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F031D245E393AA9638EC197E /* Pods_SocializeMeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		877C68652220F3E40047C002 /* SocializeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocializeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		877C68692220F3E40047C002 /* SocializeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocializeMeTests.swift; sourceTree = "<group>"; };
 		877C686B2220F3E40047C002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		877EC4DA2239E242005FCA8E /* ProfileCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewController.swift; sourceTree = "<group>"; };
 		F031D245E393AA9638EC197E /* Pods_SocializeMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocializeMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				877C68542220F3E30047C002 /* AppDelegate.swift */,
+				877EC4D92239E214005FCA8E /* Controllers */,
 				877C68562220F3E30047C002 /* ViewController.swift */,
 				877C68582220F3E30047C002 /* Main.storyboard */,
 				877C685B2220F3E40047C002 /* Assets.xcassets */,
@@ -141,6 +144,14 @@
 				877C686B2220F3E40047C002 /* Info.plist */,
 			);
 			path = SocializeMeTests;
+			sourceTree = "<group>";
+		};
+		877EC4D92239E214005FCA8E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				877EC4DA2239E242005FCA8E /* ProfileCreationViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +338,7 @@
 				877C68552220F3E30047C002 /* AppDelegate.swift in Sources */,
 				87275779222E0A8500CCD1EF /* ProfileCreationTableViewController.swift in Sources */,
 				201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */,
+				877EC4DB2239E242005FCA8E /* ProfileCreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
