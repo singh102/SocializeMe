@@ -2,38 +2,33 @@
 //  UserInfoProfile.swift
 //  SocializeMe
 //
-//  Created by Abhiram Kadiyala on 3/1/19.
+//  Created by Abhiram Kadiyala on 3/13/19.
 //  Copyright © 2019 Karthik Singh. All rights reserved.
 //
 
 import Foundation
 
 class UserInfoProfile {
-    
-    var email: String
-    var gender: String
     var name: String
+    var email: String
     var occupation: String
+    var gender: String
     
     init() {
+        self.name = ""
         self.email = ""
         self.gender = ""
-        self.name = ""
         self.occupation = ""
     }
     
-    init(_ name: String, _ gender: String, _ email: String, _ occupation: String) {
+    init(_ name: String, _ email: String, _ gender: String, _ occupation: String) {
         self.name = name
-        self.gender = gender
         self.email = email
+        self.gender = gender
         self.occupation = occupation
     }
     
     func print() {
         Swift.print("\(name) \n \(gender) \n \(email) \n \(occupation)")
-    }
-    
-    func isValidUser() -> Bool {
-        return self.name.count > 0 && self.email.count > 0 && self.gender.count > 0 && self.occupation.count > 0
     }
 }
