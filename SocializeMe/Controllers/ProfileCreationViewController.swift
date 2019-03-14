@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class ProfileCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -19,13 +21,20 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var txtAge: UITextField!
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var txtEmail: UITextField!
-
-    var dbRef: DatabaseReference!
+    @IBOutlet weak var imageProfile: UIImageView!
     
+    var dbRef: DatabaseReference!
+    var storageRef: StorageReference!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dbRef = Database.database().reference();
+        storageRef = Storage.storage().reference();
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning();
     }
     
     @IBAction func doneEditing(_ sender: UITextField) {
@@ -52,6 +61,22 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         }
         
         if let userName = txtUserName.text {
+            if let image = imageProfile.image {
+                if let imageData = image.jpegData(compressionQuality: 0.7) {
+                    let reference = self.storageRef.child("profileimages/\(userName).jpg");
+
+                    let uploadMetaData = StorageMetadata();
+                    uploadMetaData.contentType = "image/jpeg";
+
+                    reference.putData(imageData, metadata: uploadMetaData) { (metadata, error) in
+                        if let error = error {
+                            print(error);
+                            return;
+                        }
+                    }
+                }
+            }
+            
             self.dbRef.child("profiles")
                 .child(userName)
                 .setValue(newProfileDictionary);
@@ -64,13 +89,23 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         }
     }
     
+    /** Image **/
     @IBAction func addProfileImage(_ sender: UIButton) {
         let picker = UIImagePickerController();
         picker.delegate = self;
         present(picker, animated: true, completion: nil);
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let originalImage = info[.originalImage] as? UIImage {
+            imageProfile.image = originalImage;
+        }
+
+        dismiss(animated: true, completion: nil);
+    }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("Cancelled");
+        dismiss(animated: true, completion: nil);
     }
 }
