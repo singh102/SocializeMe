@@ -10,7 +10,6 @@
 		201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F7B562228A3300021B3E8 /* ProfileViewController.swift */; };
 		20BB887C223A158B008CC67A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887B223A158B008CC67A /* TabBarViewController.swift */; };
 		20BB887E223A16E3008CC67A /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887D223A16E3008CC67A /* ApplicationState.swift */; };
-		20BB8880223A1822008CC67A /* AddPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887F223A1822008CC67A /* AddPostController.swift */; };
 		20BC990E222C6424004D3A36 /* ErrorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC990D222C6424004D3A36 /* ErrorEngine.swift */; };
 		20CCBDE22228F91500532761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20CCBDE12228F91500532761 /* GoogleService-Info.plist */; };
 		20CCBDE4222904E900532761 /* UserInfoProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCBDE3222904E900532761 /* UserInfoProfile.swift */; };
@@ -39,7 +38,6 @@
 		201F7B562228A3300021B3E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		20BB887B223A158B008CC67A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		20BB887D223A16E3008CC67A /* ApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
-		20BB887F223A1822008CC67A /* AddPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostController.swift; sourceTree = "<group>"; };
 		20BC990D222C6424004D3A36 /* ErrorEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEngine.swift; sourceTree = "<group>"; };
 		20CCBDE12228F91500532761 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20CCBDE3222904E900532761 /* UserInfoProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfile.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				201F7B562228A3300021B3E8 /* ProfileViewController.swift */,
 				877EC4DA2239E242005FCA8E /* ProfileCreationViewController.swift */,
 				20BB887B223A158B008CC67A /* TabBarViewController.swift */,
-				20BB887F223A1822008CC67A /* AddPostController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -347,7 +344,6 @@
 				20BB887C223A158B008CC67A /* TabBarViewController.swift in Sources */,
 				201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */,
 				20BB887E223A16E3008CC67A /* ApplicationState.swift in Sources */,
-				20BB8880223A1822008CC67A /* AddPostController.swift in Sources */,
 				877EC4DB2239E242005FCA8E /* ProfileCreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

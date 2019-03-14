@@ -14,6 +14,7 @@ class UserInfoProfile {
     var gender: String
     var name: String
     var occupation: String
+
     
     init() {
         self.email = ""
@@ -27,11 +28,14 @@ class UserInfoProfile {
         self.gender = gender
         self.email = email
         self.occupation = occupation
+
     }
     
     func print() {
         Swift.print("\(name) \n \(gender) \n \(email) \n \(occupation)")
     }
+    
+
     
     func isValidUser() -> Bool {
         return self.name.count > 0 && self.email.count > 0 && self.gender.count > 0 && self.occupation.count > 0
