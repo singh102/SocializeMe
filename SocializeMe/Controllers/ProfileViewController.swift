@@ -29,7 +29,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveProfileDataForUserName(self.applicationState.name)
-        self.retrievePostsForUserName(self.applicationState.name)
         self.postsTableView.dataSource = self
         self.postsTableView.delegate = self
         self.postsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "basic")
@@ -58,24 +57,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
-    func retrievePostsForUserName(_ userName: String) {
-        if userName.count > 0 {
-            let usersRef = Database.database().reference().child("posts/\(userName)")
-            usersRef.observeSingleEvent(of: .value, with: {(snap : DataSnapshot) in
-                
-                if let snapVal = snap.value as? String {
-                    print(snapVal)
-                }
-              
-                
-            
-            }) { (err: Error) in
-                print("\(err.localizedDescription)")
-            }
-        }
-    }
-    
     
     func retrieveProfileDataForUserName(_ userName: String) {
     
