@@ -303,7 +303,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                         <connections>
                                             <action selector="editEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="jkV-hF-m5i"/>
                                         </connections>
@@ -411,7 +411,7 @@
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="htE-kU-W2K" eventType="touchUpInside" id="7KC-Hr-yQx"/>
-                                    <segue destination="I7q-47-48f" kind="show" id="GgC-zW-6P0"/>
+                                    <segue destination="3lG-CH-W8j" kind="show" identifier="CreatedSegue" id="7Jr-QD-7PE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM3-ZN-Owx">
@@ -525,6 +525,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GgC-zW-6P0"/>
+        <segue reference="IIl-lK-MN0"/>
+        <segue reference="mhx-RY-rLm"/>
     </inferredMetricsTieBreakers>
 </document>

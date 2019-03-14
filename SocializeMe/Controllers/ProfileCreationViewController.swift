@@ -25,6 +25,7 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
     
     var dbRef: DatabaseReference!
     var storageRef: StorageReference!
+    let applicationState: ApplicationState = ApplicationState.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         }
         
         if let userName = txtUserName.text {
+            self.applicationState.name = userName
             if let image = imageProfile.image {
                 if let imageData = image.jpegData(compressionQuality: 0.7) {
                     let reference = self.storageRef.child("profileimages/\(userName).jpg");
