@@ -13,32 +13,39 @@ import FirebaseDatabase
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
-   
+    
     @IBOutlet weak var contactsTable: UITableView!
     @IBOutlet weak var contactSearch: UISearchBar!
     
     let applicationState: ApplicationState = ApplicationState.instance
+    var databaseReference: DatabaseReference!
     
     var usersFromSearch = [String]()
     var usersFromDb = [String]()
+    var friendsFromDb = [String]()
     
+    // view controller specific methods
     override func viewDidLoad() {
+        databaseReference = Database.database().reference()
+      
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         self.setUpContacts()
+        self.loadFriends()
         super.viewWillAppear(animated)
     }
     
-    // Search Bar
-    private func setUpSearchBar() {
-    
-        
+    // search bar specific functions
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.contactSearch.endEditing(true)
     }
- 
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             usersFromSearch = usersFromDb;
@@ -57,50 +64,42 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.contactsTable.reloadData()
     }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-    }
-    
-    
+ 
     // Set up table view
     
     private func setUpContacts() {
-        
-    
         let name = self.applicationState.name
         if name.count > 0 {
-            let usersRef = Database.database().reference().child("profiles")
+            let usersRef = databaseReference.child("profiles")
             usersRef.observeSingleEvent(of: .value, with: {(snap : DataSnapshot) in
                 
                 var usersFromDb: [String] = []
-             
+                
                 for child in snap.children {
                     if let userNameSnap = child as? DataSnapshot{
                         if let value = userNameSnap.value {
                             let userData = value as! [String: String]
                             let name: String = userData["name"] ?? ""
-                        
+                            
                             usersFromDb.append(name)
                             
                             
                         }
                     }
-                  
-                    
                 }
                 
                 self.usersFromDb = usersFromDb
                 self.usersFromSearch = usersFromDb
+                print(usersFromDb)
                 self.contactsTable.reloadData()
-         
+                
             }) { (err: Error) in
                 print("\(err.localizedDescription)")
                 
             }
-         
+            
         }
-     
+        
     }
     
     
@@ -110,17 +109,73 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = contactsTable.dequeueReusableCell(withIdentifier: "contact") as? ContactCell else {
-            return UITableViewCell()
+        if let cell = contactsTable.dequeueReusableCell(withIdentifier: "contact") as? ContactCell {
+            cell.contactName.text = usersFromSearch[indexPath.row]
+            return cell
+            
         }
         
-        cell.contactName.text = usersFromSearch[indexPath.row]
-        return cell
+        return UITableViewCell()
     }
     
-    @IBAction func addButtonPressed(_ sender: UIButton) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userNameSelected = usersFromSearch[indexPath.row]
+        print(userNameSelected)
+        
+        if self.friendsFromDb.contains(userNameSelected) {
+            self.present(AlertEngine.createAlert("\(userNameSelected) already a friend"),
+                         animated: true,
+                         completion: nil)
+        } else {
+            let alertController =
+                UIAlertController(title: "Add \(userNameSelected)?",
+                    message: "message",
+                    preferredStyle: .alert)
+            alertController.addAction(self.createAddUserAction(userNameSelected))
+            alertController.addAction(UIAlertAction(title: "Cancel",
+                style: .cancel,
+                handler: nil))
+            self.present(alertController,
+                         animated: true,
+                         completion: nil)
+        }
+ 
+    }
+    
+    func loadFriends() {
+        let userNameRef = databaseReference.child("friends").child(self.applicationState.name)
+        userNameRef.observe(.value, with: { (snapshot: DataSnapshot) in
+            let user = snapshot.value as? [String: String]
+            
+            if let actualUser = user {
+                self.friendsFromDb = Array(actualUser.values)
+            }
+        })
         
     }
+    
+    func createAddUserAction(_ userName: String) -> UIAlertAction {
+        let addAction =
+            UIAlertAction(title: "Add \(userName)",
+            style: .default) { _ in
+                let confirmAlertController = UIAlertController(title: "Added \(userName)",
+                    message: nil,
+                    preferredStyle: .alert)
+                confirmAlertController.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {action in self.someHandler(userName)}))
+                self.present(confirmAlertController,
+                             animated: true,
+                             completion: nil)
+        }
+        
+        return addAction
+    }
+    
+    
+    func someHandler(_ userName: String) {
+        
+        databaseReference.child("friends").child(self.applicationState.name).childByAutoId().setValue(userName)
+    }
+    
     
 }
 

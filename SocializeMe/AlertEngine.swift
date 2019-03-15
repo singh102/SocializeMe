@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class ErrorEngine {
+class AlertEngine {
     static func createIncorrectPasswordAlert() -> UIAlertController {
-        return createErrorAlert("Incorrect Username or Password Given")
+        return createAlert("Incorrect Username or Password Given")
     }
     
-    static func createErrorAlert(_ message: String) -> UIAlertController {
+    static func createAlert(_ message: String) -> UIAlertController {
         let alertController = UIAlertController(title: "\(message)",
                                                        message: nil,
                                                        preferredStyle: .alert)
@@ -22,6 +22,4 @@ class ErrorEngine {
         
         return alertController
     }
-    
-    
 }

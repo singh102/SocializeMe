@@ -143,16 +143,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJk-GU-n5t">
-                                                    <rect key="frame" x="314" y="27" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Add"/>
-                                                    <connections>
-                                                        <action selector="addButton:" destination="rJQ-ky-1TP" eventType="touchUpInside" id="aVV-ir-6d1"/>
-                                                        <action selector="addButtonPressed:" destination="rJQ-ky-1TP" eventType="touchUpInside" id="C53-cW-5R3"/>
-                                                        <action selector="addButtonPressed:" destination="E4z-5i-pUb" eventType="touchUpInside" id="ysN-6M-w92"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QdK-pj-vaY">
                                                     <rect key="frame" x="15" y="11" width="71" height="65"/>
                                                     <constraints>
@@ -160,7 +150,7 @@
                                                         <constraint firstAttribute="width" constant="71" id="nxy-Qg-pce"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHG-sj-POI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHG-sj-POI">
                                                     <rect key="frame" x="94" y="32" width="220" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -177,7 +167,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addButton" destination="vJk-GU-n5t" id="HLz-4f-uZ8"/>
                                             <outlet property="contactName" destination="DHG-sj-POI" id="aRk-eD-Zjt"/>
                                             <outlet property="contactPic" destination="QdK-pj-vaY" id="TJi-OM-Ztq"/>
                                         </connections>
@@ -205,7 +194,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r16-wb-3PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="rJQ-ky-1TP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1564" y="10"/>
         </scene>
@@ -295,6 +283,7 @@
         <scene sceneID="Zm8-MM-XQa">
             <objects>
                 <tabBarController id="3lG-CH-W8j" customClass="TabBarViewController" customModule="SocializeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gsa-8r-NgS"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FLc-Bc-X5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -384,15 +373,21 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81k-OH-aAM">
                                         <rect key="frame" x="164" y="227" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Login"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K0v-kx-wEV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taR-gO-NeX">
-                                        <rect key="frame" x="161" y="297" width="52" height="30"/>
+                                        <rect key="frame" x="159" y="297" width="57" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Sign up"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="Sign up">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="htE-kU-W2K" kind="modal" id="ocX-e7-Bfo"/>
                                         </connections>
@@ -572,6 +567,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Jr-QD-7PE"/>
+        <segue reference="5gb-GC-ITE"/>
     </inferredMetricsTieBreakers>
 </document>
