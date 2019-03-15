@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let applicationState: ApplicationState = ApplicationState.instance
     
-    var userPosts: [String?] = []
+    var userPosts = [String]()
     
     override func viewDidLoad() {
         self.postsTableView.dataSource = self
@@ -37,27 +37,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         storageRef = Storage.storage().reference()
         dbRef = Database.database().reference()
         
+        dbRef.child("posts").child(applicationState.name).observe(.childAdded, with: { (snapshot) in
+            let post = snapshot.value as? String
+            if let actualPost = post {
+                self.userPosts.append(actualPost)
+                self.postsTableView.reloadData();
+            }
+        })
+        
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.retrieveProfileDataForUserName(self.applicationState.name)
-        
-        let postsRef = dbRef.child("posts").child("akadiyala")
-        postsRef.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
-            
-//            if let postsSnapShot = snapshot.value as? [String] {
-//                print(postsSnapShot)
-//                //self.userPosts = postsSnapShot
-//            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-
         super.viewWillAppear(animated)
     }
  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = userPosts[indexPath.row - 1]
+        let post = userPosts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath)
         
         // Configure the cell...

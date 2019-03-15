@@ -17,6 +17,8 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var posts = [String]()
     
+    let applicationState: ApplicationState = ApplicationState.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +27,7 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         dbRef = Database.database().reference();
         
-        dbRef.child("posts").child("test").observe(.childAdded, with: { (snapshot) in
+        dbRef.child("posts").child(applicationState.name).observe(.childAdded, with: { (snapshot) in
             let post = snapshot.value as? String
             if let actualPost = post {
                 self.posts.append(actualPost)
@@ -51,7 +53,7 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func uploadPost(_ sender: UIButton) {
         if let post = txtPost.text {
             // Need to get current user
-            dbRef.child("posts").child("test").childByAutoId().setValue(post)
+            dbRef.child("posts").child(applicationState.name).childByAutoId().setValue(post)
         }
     }
 }
