@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2010BB7B223B34410081B680 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010BB7A223B34410081B680 /* SearchViewController.swift */; };
+		2010BB7D223B41FD0081B680 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010BB7C223B41FD0081B680 /* ContactCell.swift */; };
 		201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F7B562228A3300021B3E8 /* ProfileViewController.swift */; };
 		20BB887C223A158B008CC67A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887B223A158B008CC67A /* TabBarViewController.swift */; };
 		20BB887E223A16E3008CC67A /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887D223A16E3008CC67A /* ApplicationState.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2010BB7A223B34410081B680 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2010BB7C223B41FD0081B680 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		201F7B562228A3300021B3E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		20BB887B223A158B008CC67A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		20BB887D223A16E3008CC67A /* ApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				20CCBDE3222904E900532761 /* UserInfoProfile.swift */,
 				20BC990D222C6424004D3A36 /* ErrorEngine.swift */,
 				20BB887D223A16E3008CC67A /* ApplicationState.swift */,
+				2010BB7C223B41FD0081B680 /* ContactCell.swift */,
 			);
 			path = SocializeMe;
 			sourceTree = "<group>";
@@ -155,7 +160,11 @@
 				201F7B562228A3300021B3E8 /* ProfileViewController.swift */,
 				877EC4DA2239E242005FCA8E /* ProfileCreationViewController.swift */,
 				20BB887B223A158B008CC67A /* TabBarViewController.swift */,
+
 				87364063223B3D9500E509AE /* TheWallViewController.swift */,
+
+				2010BB7A223B34410081B680 /* SearchViewController.swift */,
+
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -340,10 +349,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2010BB7D223B41FD0081B680 /* ContactCell.swift in Sources */,
 				877C68572220F3E30047C002 /* ViewController.swift in Sources */,
 				20CCBDE4222904E900532761 /* UserInfoProfile.swift in Sources */,
 				87364064223B3D9500E509AE /* TheWallViewController.swift in Sources */,
 				20BC990E222C6424004D3A36 /* ErrorEngine.swift in Sources */,
+				2010BB7B223B34410081B680 /* SearchViewController.swift in Sources */,
 				877C68552220F3E30047C002 /* AppDelegate.swift in Sources */,
 				20BB887C223A158B008CC67A /* TabBarViewController.swift in Sources */,
 				201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */,

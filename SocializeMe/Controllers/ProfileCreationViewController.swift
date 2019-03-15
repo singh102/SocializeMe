@@ -62,7 +62,7 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         }
         
         if let userName = txtUserName.text {
-            self.applicationState.name = userName
+            
             if let image = imageProfile.image {
                 if let imageData = image.jpegData(compressionQuality: 0.7) {
                     let reference = self.storageRef.child("profileimages/\(userName).jpg");
@@ -88,6 +88,8 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
                     .child(userName)
                     .setValue(["password": password]);
             }
+            
+            self.applicationState.name = userName
         }
     }
     
