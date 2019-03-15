@@ -12,17 +12,17 @@ class ApplicationState {
     static let instance = ApplicationState()
     
     var name: String
+    var users: [String]
 
     
     
     
     init() {
         self.name = ""
+        self.users = []
     }
     
-    init(_ name: String) {
-        self.name = name
-    }
+ 
     
     func print() {
         Swift.print("\(name) \n ")
