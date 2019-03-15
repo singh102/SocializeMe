@@ -28,12 +28,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.retrieveProfileDataForUserName(self.applicationState.name)
+   
         self.postsTableView.dataSource = self
         self.postsTableView.delegate = self
         self.postsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "basic")
         
         storageRef = Storage.storage().reference()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.retrieveProfileDataForUserName(self.applicationState.name)
+        super.viewWillAppear(animated)
     }
  
     
