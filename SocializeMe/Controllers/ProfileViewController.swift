@@ -21,46 +21,53 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var postsTableView: UITableView!
     
     var storageRef: StorageReference!
+    var dbRef: DatabaseReference!
     
     var postContent: String = ""
     
     let applicationState: ApplicationState = ApplicationState.instance
     
+    var userPosts: [String?] = []
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-   
         self.postsTableView.dataSource = self
         self.postsTableView.delegate = self
         self.postsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "basic")
         
         storageRef = Storage.storage().reference()
+        dbRef = Database.database().reference()
+        
+        super.viewDidLoad()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.retrieveProfileDataForUserName(self.applicationState.name)
+        
+        let postsRef = dbRef.child("posts").child("akadiyala")
+        postsRef.observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
+            
+//            if let postsSnapShot = snapshot.value as? [String] {
+//                print(postsSnapShot)
+//                //self.userPosts = postsSnapShot
+//            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
         super.viewWillAppear(animated)
     }
  
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
-        if postContent.count > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath)
-            
-            // Configure the cell
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM.yyyy"
-            let result = formatter.string(from: Date())
-            
-            cell.textLabel?.text = "\(result) - \(postContent)"
-            return cell
-        }
+        let post = userPosts[indexPath.row - 1]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basic", for: indexPath)
         
-        return UITableViewCell()
+        // Configure the cell...
+        cell.textLabel?.text = post
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return userPosts.count
     }
     
     func retrieveProfileDataForUserName(_ userName: String) {
