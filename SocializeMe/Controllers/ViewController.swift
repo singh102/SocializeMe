@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             
                             passwordRef.observeSingleEvent(of: .value, with: {(passSnap : DataSnapshot) in
                                 if let value = passSnap.value {
+                                  
                                     let passData = value as! [String: String]
                                     actualPassword = passData["password"]
                                     
