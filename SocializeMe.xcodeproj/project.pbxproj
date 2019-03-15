@@ -12,7 +12,7 @@
 		201F7B572228A3300021B3E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F7B562228A3300021B3E8 /* ProfileViewController.swift */; };
 		20BB887C223A158B008CC67A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887B223A158B008CC67A /* TabBarViewController.swift */; };
 		20BB887E223A16E3008CC67A /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB887D223A16E3008CC67A /* ApplicationState.swift */; };
-		20BC990E222C6424004D3A36 /* ErrorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC990D222C6424004D3A36 /* ErrorEngine.swift */; };
+		20BC990E222C6424004D3A36 /* AlertEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC990D222C6424004D3A36 /* AlertEngine.swift */; };
 		20CCBDE22228F91500532761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20CCBDE12228F91500532761 /* GoogleService-Info.plist */; };
 		20CCBDE4222904E900532761 /* UserInfoProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CCBDE3222904E900532761 /* UserInfoProfile.swift */; };
 		357A38999B78B0390446807A /* Pods_SocializeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D75764DDA656ABFC0347D67 /* Pods_SocializeMe.framework */; };
@@ -43,7 +43,7 @@
 		201F7B562228A3300021B3E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		20BB887B223A158B008CC67A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		20BB887D223A16E3008CC67A /* ApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
-		20BC990D222C6424004D3A36 /* ErrorEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEngine.swift; sourceTree = "<group>"; };
+		20BC990D222C6424004D3A36 /* AlertEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEngine.swift; sourceTree = "<group>"; };
 		20CCBDE12228F91500532761 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20CCBDE3222904E900532761 /* UserInfoProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfile.swift; sourceTree = "<group>"; };
 		2843EEF1BCC5D309B0427C06 /* Pods-SocializeMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocializeMeTests.debug.xcconfig"; path = "Target Support Files/Pods-SocializeMeTests/Pods-SocializeMeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				877C68602220F3E40047C002 /* Info.plist */,
 				20CCBDE12228F91500532761 /* GoogleService-Info.plist */,
 				20CCBDE3222904E900532761 /* UserInfoProfile.swift */,
-				20BC990D222C6424004D3A36 /* ErrorEngine.swift */,
+				20BC990D222C6424004D3A36 /* AlertEngine.swift */,
 				20BB887D223A16E3008CC67A /* ApplicationState.swift */,
 				2010BB7C223B41FD0081B680 /* ContactCell.swift */,
 			);
@@ -160,11 +160,8 @@
 				201F7B562228A3300021B3E8 /* ProfileViewController.swift */,
 				877EC4DA2239E242005FCA8E /* ProfileCreationViewController.swift */,
 				20BB887B223A158B008CC67A /* TabBarViewController.swift */,
-
 				87364063223B3D9500E509AE /* TheWallViewController.swift */,
-
 				2010BB7A223B34410081B680 /* SearchViewController.swift */,
-
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -353,7 +350,7 @@
 				877C68572220F3E30047C002 /* ViewController.swift in Sources */,
 				20CCBDE4222904E900532761 /* UserInfoProfile.swift in Sources */,
 				87364064223B3D9500E509AE /* TheWallViewController.swift in Sources */,
-				20BC990E222C6424004D3A36 /* ErrorEngine.swift in Sources */,
+				20BC990E222C6424004D3A36 /* AlertEngine.swift in Sources */,
 				2010BB7B223B34410081B680 /* SearchViewController.swift in Sources */,
 				877C68552220F3E30047C002 /* AppDelegate.swift in Sources */,
 				20BB887C223A158B008CC67A /* TabBarViewController.swift in Sources */,

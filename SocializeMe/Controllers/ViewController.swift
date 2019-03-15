@@ -35,8 +35,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sender.resignFirstResponder()
     }
     
+ 
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        let incorrectUserNamePasswordController = ErrorEngine.createIncorrectPasswordAlert()
         if let userNameText = userNameField.text {
             if let passwordText = passwordField.text {
                 if userNameText.count > 0 && passwordText.count > 0 {
@@ -63,7 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                           
                                             //print alert
                                             print("No Segue")
-                                            self.present(incorrectUserNamePasswordController,
+                                            self.present(AlertEngine.createIncorrectPasswordAlert(),
                                                          animated: true,
                                                          completion: nil)
                                         }
@@ -71,7 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                     
                                 }
                             }) { (err: Error) in
-                                self.present(ErrorEngine.createErrorAlert("Unable to connect!"),
+                                self.present(AlertEngine.createAlert("Unable to connect!"),
                                              animated: true,
                                              completion: nil)
                                 
@@ -81,13 +82,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             
                         } else {
                             
-                            self.present(incorrectUserNamePasswordController,
+                            self.present(AlertEngine.createIncorrectPasswordAlert(),
                                          animated: true,
                                          completion: nil)
                         }
                         
                     }) { (err: Error) in
-                        self.present(ErrorEngine.createErrorAlert("Unable to connect!"),
+                        self.present(AlertEngine.createAlert("Unable to connect!"),
                                      animated: true,
                                      completion: nil)
                         
