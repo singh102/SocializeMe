@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TheWallViewController: UITextViewDelegate, UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var txtPost: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -60,6 +60,14 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

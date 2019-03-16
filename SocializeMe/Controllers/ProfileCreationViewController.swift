@@ -61,6 +61,10 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
             newProfileDictionary["occupation"] = occupation;
         }
         
+        if let description = txtDescription.text {
+            newProfileDictionary["description"] = description;
+        }
+        
         if let userName = txtUserName.text {
             
             if let image = imageProfile.image {
