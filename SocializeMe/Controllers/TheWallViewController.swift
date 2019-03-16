@@ -16,6 +16,7 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
     var dbRef: DatabaseReference!
     
     var posts = [String]()
+    var friendUserNames = [String]()
     
     let applicationState: ApplicationState = ApplicationState.instance
     
@@ -27,7 +28,32 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         dbRef = Database.database().reference();
         
-        dbRef.child("posts").child(applicationState.name).observe(.childAdded, with: { (snapshot) in
+        dbRef.child("friends").child(self.applicationState.name).observe(.childAdded, with: { (snapshot) in
+            let friendNameOptional = snapshot.value as? String
+            if let friendName = friendNameOptional {
+                self.dbRef.child("profiles").observeSingleEvent(of: .value, with: { (snapshot) in
+                    for child in snapshot.children {
+                        if let profile = child as? DataSnapshot {
+                            if let profileValue = profile.value {
+                                let profileData = profileValue as! [String:String]
+                                if (profileData["name"] == friendName) {
+                                    self.friendUserNames.append(profile.key)
+                                    self.dbRef.child("posts").child(profile.key).observe(.childAdded, with: { (snapshot) in
+                                        let post = snapshot.value as? String
+                                        if let actualPost = post {
+                                            self.posts.append(actualPost)
+                                            self.tableView.reloadData()
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+        })
+
+        self.dbRef.child("posts").child(self.applicationState.name).observe(.childAdded, with: { (snapshot) in
             let post = snapshot.value as? String
             if let actualPost = post {
                 self.posts.append(actualPost)
@@ -40,7 +66,6 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
         let post = posts[indexPath.row];
         let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath);
         
-        // Configure the cell...
         cell.textLabel?.text = post;
         
         return cell
@@ -52,7 +77,6 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func uploadPost(_ sender: UIButton) {
         if let post = txtPost.text {
-            // Need to get current user
             dbRef.child("posts").child(applicationState.name).childByAutoId().setValue(post)
         }
     }
