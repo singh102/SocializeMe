@@ -10,17 +10,5 @@ import Foundation
 import UIKit
 
 class ContactCell: UITableViewCell {
-    @IBOutlet weak var contactName: UILabel!
-    @IBOutlet weak var addButton: UIButton!
-    
-    @IBOutlet weak var contactPic: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
+    @IBOutlet weak var contactName: UILabel!  
 }

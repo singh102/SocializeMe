@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
@@ -17,16 +18,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var contactsTable: UITableView!
     @IBOutlet weak var contactSearch: UISearchBar!
     
+    var image: UIImage?
+    
     let applicationState: ApplicationState = ApplicationState.instance
     var databaseReference: DatabaseReference!
+    var storageRef: StorageReference!
     
     var usersFromSearch = [String]()
     var usersFromDb = [String]()
     var friendsFromDb = [String]()
-    
+   
     // view controller specific methods
     override func viewDidLoad() {
         databaseReference = Database.database().reference()
+        storageRef = Storage.storage().reference()
+        
       
         super.viewDidLoad()
     }
@@ -74,23 +80,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             usersRef.observeSingleEvent(of: .value, with: {(snap : DataSnapshot) in
                 
                 var usersFromDb: [String] = []
-                
+             
                 for child in snap.children {
                     if let userNameSnap = child as? DataSnapshot{
                         if let value = userNameSnap.value {
                             let userData = value as! [String: String]
                             let name: String = userData["name"] ?? ""
-                            
                             usersFromDb.append(name)
-                            
-                            
                         }
                     }
                 }
                 
                 self.usersFromDb = usersFromDb
                 self.usersFromSearch = usersFromDb
-                print(usersFromDb)
                 self.contactsTable.reloadData()
                 
             }) { (err: Error) in
@@ -101,18 +103,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-    
-    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersFromSearch.count
+        return usersFromDb.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = contactsTable.dequeueReusableCell(withIdentifier: "contact") as? ContactCell {
-            cell.contactName.text = usersFromSearch[indexPath.row]
+            cell.contactName.text = usersFromDb[indexPath.row]
             return cell
-            
         }
         
         return UITableViewCell()
@@ -128,7 +128,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                          completion: nil)
         } else {
             let alertController =
-                UIAlertController(title: "Add \(userNameSelected)?",
+                UIAlertController(title: "\(userNameSelected)",
                     message: "message",
                     preferredStyle: .alert)
             alertController.addAction(self.createAddUserAction(userNameSelected))
@@ -178,4 +178,3 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
 }
-
