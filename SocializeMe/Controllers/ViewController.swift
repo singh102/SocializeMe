@@ -13,7 +13,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var userName: String = ""
     
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -108,6 +107,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         Swift.print("\(err.localizedDescription)")
                     }
                     
+                } else {
+                    self.present(AlertEngine.createIncorrectPasswordAlert(),
+                                 animated: true,
+                                 completion: nil)
                 }
             }
         }

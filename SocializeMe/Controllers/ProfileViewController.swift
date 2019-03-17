@@ -91,14 +91,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 print("\(err.localizedDescription)")
             }
             
-            let pictureReference = self.storageRef.child("profileimages/\(userName).jpg")
-            pictureReference.getData(maxSize: 10*1024*1024) {(data, error) in
-                if let errorthatOccured = error {
-                    Swift.print("\(errorthatOccured.localizedDescription)")
-                } else {
-                    if let imageData = data {
-                        let image = UIImage(data: imageData)
-                        self.profilePicture.image = image
+            if (applicationState.isUserCreation){
+                self.profilePicture.image = applicationState.profileImage
+            } else {
+                let pictureReference = self.storageRef.child("profileimages/\(userName).jpg")
+                pictureReference.getData(maxSize: 10*1024*1024) {(data, error) in
+                    if let errorthatOccured = error {
+                        Swift.print("\(errorthatOccured.localizedDescription)")
+                    } else {
+                        if let imageData = data {
+                            let image = UIImage(data: imageData)
+                            self.profilePicture.image = image
+                        }
                     }
                 }
             }
