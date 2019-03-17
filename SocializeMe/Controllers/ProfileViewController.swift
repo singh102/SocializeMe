@@ -14,6 +14,7 @@ import FirebaseStorage
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userNameText: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var genderTextField: UILabel!
@@ -85,6 +86,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.occupationTextField.text = occupation
             }) { (err: Error) in
                 print("\(err.localizedDescription)")
+            }
+            
+            let pictureReference = self.storageRef.child("profileimages/\(userName).jpg")
+            pictureReference.getData(maxSize: 10*1024*1024) {(data, error) in
+                if let errorthatOccured = error {
+                    Swift.print("\(errorthatOccured.localizedDescription)")
+                } else {
+                    if let imageData = data {
+                        let image = UIImage(data: imageData)
+                        self.profilePicture.image = image
+                    }
+                }
             }
         }
     }
