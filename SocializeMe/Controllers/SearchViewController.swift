@@ -106,12 +106,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersFromDb.count
+        return usersFromSearch.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = contactsTable.dequeueReusableCell(withIdentifier: "contact") as? ContactCell {
-            cell.contactName.text = usersFromDb[indexPath.row]
+            cell.contactName.text = usersFromSearch[indexPath.row]
             return cell
         }
         
