@@ -12,10 +12,6 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class ProfileCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    @IBOutlet var textFields: [UITextField]!
-    
-
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtFullName: UITextField!
