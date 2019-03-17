@@ -24,8 +24,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        userNameField.text! = "akadiyala"
-        passwordField.text! = "password"
+        //Uncomment if you want to test out for dev purposes, comment out if you want to give demo or try out a new username
+        //userNameField.text! = "akadiyala"
+        //passwordField.text! = "password"
         
         self.passwordField.delegate = self
         
@@ -35,9 +36,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sender.resignFirstResponder()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == UIReturnKeyType.go {
+            login()
+            return true
+        }
+        
+        return false
+    }
  
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        login()
+    }
+    
+    func login() {
         if let userNameText = userNameField.text {
             if let passwordText = passwordField.text {
                 if userNameText.count > 0 && passwordText.count > 0 {
@@ -46,12 +59,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     usersRef.observeSingleEvent(of: .value, with: {(snap : DataSnapshot) in
                         if snap.hasChild(userNameText) {
                             self.userName = userNameText
-                        
+                            
                             let passwordRef = usersRef.child(userNameText)
                             
                             passwordRef.observeSingleEvent(of: .value, with: {(passSnap : DataSnapshot) in
                                 if let value = passSnap.value {
-                                  
+                                    
                                     let passData = value as! [String: String]
                                     actualPassword = passData["password"]
                                     
@@ -61,7 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                             self.performSegue(withIdentifier: "TabbedViewSegue", sender: self)
                                             
                                         } else {
-                                          
+                                            
                                             //print alert
                                             print("No Segue")
                                             self.present(AlertEngine.createIncorrectPasswordAlert(),

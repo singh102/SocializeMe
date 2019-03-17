@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var genderTextField: UILabel!
     @IBOutlet weak var occupationTextField: UILabel!
     @IBOutlet weak var postsTableView: UITableView!
+    @IBOutlet weak var descriptionText: UILabel!
     
     var storageRef: StorageReference!
     var dbRef: DatabaseReference!
@@ -78,12 +79,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let gender = userInfoDict["gender"] ?? ""
                 let occupation = userInfoDict["occupation"] ?? ""
                 let email = userInfoDict["email"] ?? ""
+                let description = userInfoDict["description"] ?? ""
             
                 
                 self.userNameText.text = name
                 self.genderTextField.text = gender
                 self.email.text = email
                 self.occupationTextField.text = occupation
+                self.descriptionText.text = description
             }) { (err: Error) in
                 print("\(err.localizedDescription)")
             }

@@ -129,7 +129,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         } else {
             let alertController =
                 UIAlertController(title: "\(userNameSelected)",
-                    message: "message",
+                    message: "\(userNameSelected) will be added as a friend",
                     preferredStyle: .alert)
             alertController.addAction(self.createAddUserAction(userNameSelected))
             alertController.addAction(UIAlertAction(title: "Cancel",
@@ -156,7 +156,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func createAddUserAction(_ userName: String) -> UIAlertAction {
         let addAction =
-            UIAlertAction(title: "Add \(userName)",
+            UIAlertAction(title: "SocializeMe",
             style: .default) { _ in
                 let confirmAlertController = UIAlertController(title: "Added \(userName)",
                     message: nil,
