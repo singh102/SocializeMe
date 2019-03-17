@@ -27,21 +27,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0Q-cB-8Nk">
-                                        <rect key="frame" x="19" y="341" width="157" height="21"/>
+                                        <rect key="frame" x="123" y="284" width="128" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-mx-Uxt">
-                                        <rect key="frame" x="109" y="296" width="157" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Occupation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-jw-puw">
-                                        <rect key="frame" x="244" y="342" width="157" height="21"/>
+                                        <rect key="frame" x="109" y="255" width="157" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -59,16 +52,30 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-r2-XAt">
-                                        <rect key="frame" x="95" y="240" width="185" height="21"/>
+                                        <rect key="frame" x="95" y="226" width="185" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBH-cl-4w7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBH-cl-4w7">
                                         <rect key="frame" x="67" y="90" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="was-YW-R4O">
+                                        <rect key="frame" x="8" y="352" width="359" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Occupation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-jw-puw">
+                                        <rect key="frame" x="109" y="313" width="157" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -112,6 +119,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="cb8-o6-Weu"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="descriptionText" destination="was-YW-R4O" id="fhi-R3-vu7"/>
                         <outlet property="email" destination="gOa-mx-Uxt" id="RcW-5v-koT"/>
                         <outlet property="genderTextField" destination="i0Q-cB-8Nk" id="2q7-XC-TRj"/>
                         <outlet property="occupationTextField" destination="e8Y-jw-puw" id="gXJ-p8-wZ0"/>
@@ -122,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lE5-yU-IYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="760"/>
+            <point key="canvasLocation" x="1533.5999999999999" y="759.60591133004925"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="JFd-z1-0NB">
@@ -358,7 +366,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
                                         <connections>
                                             <action selector="editEnded:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="LGL-DO-N9N"/>
                                         </connections>
@@ -382,7 +390,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <action selector="editEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="jkV-hF-m5i"/>
                                         </connections>
@@ -458,7 +466,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="username"/>
                                                 <connections>
                                                     <action selector="doneEditing:" destination="Ab3-gh-ifB" eventType="editingDidEnd" id="pRw-De-hnZ"/>
                                                 </connections>
@@ -468,7 +476,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="new-password"/>
                                                 <connections>
                                                     <action selector="doneEditing:" destination="Ab3-gh-ifB" eventType="editingDidEnd" id="i0n-iR-Qfk"/>
                                                 </connections>
@@ -478,7 +486,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                                 <connections>
                                                     <action selector="doneEditing:" destination="Ab3-gh-ifB" eventType="editingDidEnd" id="h5o-Qc-vW0"/>
                                                 </connections>
@@ -488,7 +496,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
                                                 <connections>
                                                     <action selector="doneEditing:" destination="Ab3-gh-ifB" eventType="editingDidEnd" id="YdI-CX-ntL"/>
                                                 </connections>
@@ -541,7 +549,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="organization-title"/>
                                                 <connections>
                                                     <action selector="doneEditing:" destination="Ab3-gh-ifB" eventType="editingDidEnd" id="Hfs-he-BzU"/>
                                                 </connections>
@@ -551,7 +559,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="doneEditing:" destination="Ab3-gh-ifB" eventType="editingDidEnd" id="XKb-Ao-Xkx"/>
                                                 </connections>
@@ -648,6 +656,13 @@
                         <outlet property="txtOccupation" destination="GEf-IS-k2L" id="11O-uZ-4k4"/>
                         <outlet property="txtPassword" destination="3xi-A0-d1f" id="oOQ-za-ahk"/>
                         <outlet property="txtUserName" destination="wR0-17-CCy" id="D05-6i-6ZV"/>
+                        <outletCollection property="textFields" destination="wR0-17-CCy" collectionClass="NSMutableArray" id="Qd3-bF-Cdu"/>
+                        <outletCollection property="textFields" destination="3xi-A0-d1f" collectionClass="NSMutableArray" id="w4Q-D4-RO4"/>
+                        <outletCollection property="textFields" destination="lu6-K6-KYQ" collectionClass="NSMutableArray" id="icb-Kx-05t"/>
+                        <outletCollection property="textFields" destination="VtV-Vi-kN5" collectionClass="NSMutableArray" id="zLe-gH-acl"/>
+                        <outletCollection property="textFields" destination="73T-vw-G2z" collectionClass="NSMutableArray" id="BkD-qc-Dfr"/>
+                        <outletCollection property="textFields" destination="GEf-IS-k2L" collectionClass="NSMutableArray" id="sXS-fN-2rq"/>
+                        <outletCollection property="textFields" destination="pGW-eS-L1e" collectionClass="NSMutableArray" id="ktf-w6-I99"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gf-vN-HDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -656,6 +671,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5gb-GC-ITE"/>
+        <segue reference="7Jr-QD-7PE"/>
     </inferredMetricsTieBreakers>
 </document>
