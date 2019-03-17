@@ -15,7 +15,8 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var dbRef: DatabaseReference!
     
-    var posts = [String]()
+    
+    var posts = [Post]()
     var friendUserNames = [String]()
     
     let applicationState: ApplicationState = ApplicationState.instance
@@ -41,7 +42,8 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
                                     self.dbRef.child("posts").child(profile.key).observe(.childAdded, with: { (snapshot) in
                                         let post = snapshot.value as? String
                                         if let actualPost = post {
-                                            self.posts.append(actualPost)
+                                            let post = Post(actualPost, friendName)
+                                            self.posts.append(post)
                                             self.tableView.reloadData()
                                         }
                                     })
@@ -56,7 +58,7 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.dbRef.child("posts").child(self.applicationState.name).observe(.childAdded, with: { (snapshot) in
             let post = snapshot.value as? String
             if let actualPost = post {
-                self.posts.append(actualPost)
+                self.posts.append(Post(actualPost, self.applicationState.name))
                 self.tableView.reloadData()
             }
         })
@@ -64,9 +66,10 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row];
-        let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath);
+        let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! WallContentCell
         
-        cell.textLabel?.text = post;
+        cell.postContent.text = post.postContent
+        cell.name.text = post.name
         
         return cell
     }
@@ -80,4 +83,20 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
             dbRef.child("posts").child(applicationState.name).childByAutoId().setValue(post)
         }
     }
+}
+
+class Post {
+    var postContent: String
+    var name: String
+    
+    init() {
+        self.postContent = ""
+        self.name = ""
+    }
+    
+    init(_ postContent: String, _ name: String) {
+        self.postContent = postContent
+        self.name = name
+    }
+    
 }
