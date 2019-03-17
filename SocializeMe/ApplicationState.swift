@@ -7,19 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
 class ApplicationState {
     static let instance = ApplicationState()
     
     var name: String
     var users: [String]
-
-    
-    
+    var profileImage: UIImage
+    var isUserCreation: Bool
     
     init() {
         self.name = ""
         self.users = []
+        self.profileImage = UIImage()
+        self.isUserCreation = false;
     }
     
  

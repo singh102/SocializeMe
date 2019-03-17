@@ -120,6 +120,8 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         
         if let originalImage = info[.originalImage] as? UIImage {
             imageProfile.image = originalImage;
+            applicationState.profileImage = originalImage
+            applicationState.isUserCreation = true;
         }
 
         dismiss(animated: true, completion: nil);
