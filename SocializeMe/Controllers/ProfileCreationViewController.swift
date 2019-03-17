@@ -11,7 +11,7 @@ import Foundation
 import FirebaseDatabase
 import FirebaseStorage
 
-class ProfileCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileCreationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtFullName: UITextField!
@@ -31,6 +31,14 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
         
         dbRef = Database.database().reference();
         storageRef = Storage.storage().reference();
+        
+        txtUserName.delegate = self;
+        txtPassword.delegate = self;
+        txtFullName.delegate = self;
+        txtGender.delegate = self;
+        txtOccupation.delegate = self;
+        txtAge.delegate = self;
+        txtEmail.delegate = self;
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +47,11 @@ class ProfileCreationViewController: UIViewController, UIImagePickerControllerDe
     
     @IBAction func doneEditing(_ sender: UITextField) {
         sender.resignFirstResponder();
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     @IBAction func save(_ sender: UIButton) {
