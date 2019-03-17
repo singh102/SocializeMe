@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     @IBOutlet weak var txtPost: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,6 +26,7 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self;
         tableView.dataSource = self;
+        txtPost.delegate = self;
         
         dbRef = Database.database().reference();
         
@@ -76,6 +77,15 @@ class TheWallViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count;
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            self.txtPost.resignFirstResponder()
+            return false
+        }
+        
+        return true
     }
     
     @IBAction func uploadPost(_ sender: UIButton) {
