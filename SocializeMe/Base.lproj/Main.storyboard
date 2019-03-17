@@ -656,13 +656,6 @@
                         <outlet property="txtOccupation" destination="GEf-IS-k2L" id="11O-uZ-4k4"/>
                         <outlet property="txtPassword" destination="3xi-A0-d1f" id="oOQ-za-ahk"/>
                         <outlet property="txtUserName" destination="wR0-17-CCy" id="D05-6i-6ZV"/>
-                        <outletCollection property="textFields" destination="wR0-17-CCy" collectionClass="NSMutableArray" id="Qd3-bF-Cdu"/>
-                        <outletCollection property="textFields" destination="3xi-A0-d1f" collectionClass="NSMutableArray" id="w4Q-D4-RO4"/>
-                        <outletCollection property="textFields" destination="lu6-K6-KYQ" collectionClass="NSMutableArray" id="icb-Kx-05t"/>
-                        <outletCollection property="textFields" destination="VtV-Vi-kN5" collectionClass="NSMutableArray" id="zLe-gH-acl"/>
-                        <outletCollection property="textFields" destination="73T-vw-G2z" collectionClass="NSMutableArray" id="BkD-qc-Dfr"/>
-                        <outletCollection property="textFields" destination="GEf-IS-k2L" collectionClass="NSMutableArray" id="sXS-fN-2rq"/>
-                        <outletCollection property="textFields" destination="pGW-eS-L1e" collectionClass="NSMutableArray" id="ktf-w6-I99"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gf-vN-HDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
